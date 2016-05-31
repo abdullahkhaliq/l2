@@ -1,0 +1,450 @@
+﻿@model List<MvcApplication1.Models.City>
+
+<html>
+<head>
+<title> BookHotel</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Classic Hotel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="~/Content/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="~/Content/chocolat.css" rel="stylesheet">
+<!-- js -->
+<script src="~/Scripts/jquery-1.11.1.min.js"></script>
+<!-- //js -->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+	<!-- start-smoth-scrolling -->
+		<script type="text/javascript" src="~/Scripts/move-top.js"></script>
+		<script type="text/javascript" src="~/Scripts/easing.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+		</script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+ 
+	<!-- start-smoth-scrolling -->
+</head>
+<body>
+<!-- banner -->
+<div class="banner">
+	<div class="container">
+		<div class="header-nav">
+			<div class="logo">
+				<h1><a href="/Home/index"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Book Hotel</a></h1>
+			</div>
+			<div class="navigation">
+				<span class="menu"><img src="~/Images/menu.png" alt=""/></span>
+				<nav class="cl-effect-11" id="cl-effect-11">
+					<ul class="nav1">
+        <li><a class="active" href="/Home/index" data-hover="HOME">HOME</a></li>
+        <li><a href="/Home/about" data-hover="ABOUT">ABOUT</a></li>
+        <li><a href="/Home/typography" data-hover="SERVICES">SERVICE</a></li>
+        <li><a href="/Home/contact" data-hover="CONTACT">CONTACT</a></li>
+@if (Session["User"] == null)
+{
+        <li><a href="/Home/login" data-hover="LOGIN">LOGIN</a></li>
+}
+else
+{
+        <li><a href="/Home/Details" data-hover="BOOKINGS">BOOKING</a></li>
+        <li><a href="/Home/login2" data-hover="LOUT">LOGOUT</a></li>   
+   <li class="nav navbar-nav navbar-right" style="color:yellow;">@Session["User"]</li>
+}
+					</ul>
+				</nav>
+				<!-- script for menu -->
+					<script> 
+						$( "span.menu" ).click(function() {
+						$( "ul.nav1" ).slideToggle( 300, function() {
+						 // Animation complete.
+						});
+						});
+					</script>
+				<!-- //script for menu -->
+				
+			</div>
+			<div class="social-icons">
+                <ul>
+                    <li><a href="http://www.facebook.com/Book-Hotel-135505630191648/?skip_nax_wizard=true" class="f1"></a></li>
+                    <li><a href="http://twitter.com/book_hotel7" class="f2"></a></li>
+                    <li><a href="http://gmail.com" class="f3"></a></li>
+                </ul>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="banner-info">
+			<script src="~/Scripts/responsiveslides.min.js"></script>
+			<script>
+									// You can also use "$(window).load(function() {"
+									$(function () {
+									 // Slideshow 4
+									$("#slider3").responsiveSlides({
+										auto: true,
+										pager: false,
+										nav: false,
+										speed: 500,
+										namespace: "callbacks",
+										before: function () {
+									$('.events').append("<li>before event fired.</li>");
+									},
+									after: function () {
+										$('.events').append("<li>after event fired.</li>");
+										}
+										});
+										});
+			</script>
+			<div  id="top" class="callbacks_container">
+				<ul class="rslides callbacks callbacks1" id="slider3">
+					<li id="callbacks1_s0" class="callbacks1_on" style="display: block; float: left; position: relative; opacity: 1; z-index: 2; transition: opacity 500ms ease-in-out;">
+						<div class="banner-text">
+							<h3>WELCOME</h3>
+							<h4>EXCELLENT SERVICES WITH BEST PRICE</h4>
+						</div>
+					</li>
+					<li id="callbacks1_s1" class="" style="display: block; float: none; position: absolute; opacity: 0; z-index: 1; transition: opacity 500ms ease-in-out;">
+						<div class="banner-text">
+							<h3>WELCOME</h3>
+							<h4>RELAX AND EXPERIENCE SOMETHING NEW</h4>
+						</div>
+					</li>
+                    <li id="callbacks1_s2" class="" style="display: block; float: none; position: absolute; opacity: 0; z-index: 1; transition: opacity 500ms ease-in-out;">
+						<div class="banner-text">
+							<h3>WELCOME</h3>
+							<h4>FIND YOUR IDEAL HOTEL ON BOOK HOTEL</h4>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="banner-bottom">
+			<div class="droop-down">
+
+                <form action="/Home/search">
+                    <div class="droop">
+                        <div class="sort-by">
+
+                            <select class="sel" id="city" name="city">
+
+                                @foreach (var v in Model)
+                                {
+                                    <option value="@v.Name">@v.Name</option>
+                                }
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="radio-btns">
+                        <div class="swit">
+                            <div class="check_box"> <div class="radio"> <label><input type="radio" name="radio" checked=""><i></i>Daily</label> </div></div>
+                            <div class="check_box"> <div class="radio"> <label><input type="radio" name="radio"><i></i>Hourly</label> </div></div>
+                        </div>
+                    </div>
+                    <div class="search">
+
+                        <input type="submit" value="search">
+
+                    </div>
+                </form>
+
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- //banner -->
+<!-- banner-pos -->
+<div class="banner-pos">
+	<div class="container">
+		<div class="banner-pos-grids">
+			<div class="ban-pos-gridone">
+				<h3></h3>
+				<div class="ban-pos-info l-grids">
+					<figure class="effect-bubba">
+							<img src="~/Images/4.jpg" alt=""/>
+							<figcaption>
+								<h4></h4>
+																								
+							</figcaption>			
+					</figure>
+				</div>
+			</div>
+			<div class="ban-pos-gridtwo l-grids">
+				<div class="ban-pos-info l-grids">
+					<figure class="effect-bubba">
+							<img src="~/Images/6.jpg" alt=""/>
+							<figcaption>
+								<h4></h4>
+																					
+							</figcaption>			
+					</figure>
+				</div>
+			</div>
+			<div class="ban-pos-gridthree l-grids">
+				<div class="ban-pos-info l-grids">
+					<figure class="effect-bubba">
+							<img src="~/Images/5.jpg" alt=""/>
+							<figcaption>
+								<h4></h4>
+																						
+							</figcaption>			
+					</figure>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+
+<!-- //welcome -->
+<!-- facilities -->
+<div class="facilities">
+	<div class="container">
+		<h3 class="tittle">FACILITIES</h3>
+		<div class="facilities-grids">
+			<div class="col-md-6 facilities-grid">
+				<img src="~/Images/222.jpg" alt="" />
+			</div>
+			<div class="col-md-6 facilities-grid-left">
+				<div class="fac-grids">
+					<div class="facilities-left">
+						<img src="~/Images/111.jpg" alt="" />
+					</div>
+					<div class="facilities-right">
+						<img src="~/Images/333.jpg" alt="" />
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="fac-rig-btm">
+					<img src="~/Images/444.jpg" alt="" />
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<!-- //facilities -->
+<!-- services -->
+<div class="feature-serv">
+	<div class="container">
+		<h3 class="tittle">FEATURED SERVICES</h3>
+		<div class="services-bottom-grids">
+				<div class="col-md-4 services-bottom-grid">
+					<div class="services-bottom-grd-left wel-grid">
+						<div class="time-service">
+							<figure class="icon">
+								<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+							</figure>
+						</div>
+					</div>
+					<div class="services-bottom-grd-right">
+						<h4>Hotel Reservation</h4>
+						<p>You can book hotel of your choice and in your range from our website at your ease.</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			
+		</div>
+	</div>
+</div>
+<!-- //services -->
+<!-- gallery -->
+<div class="gallery" id="gallery">
+	<div class="container">
+		<h3 class="tittle">GALLERY</h3>
+			<div class="gallery-bottom">
+					<div class="col-md-4 gal-grid">
+						<div class="view view-fifth">
+							<a href="~/Images/aaa.jpg" class="b-link-stripe b-animate-go  thickbox"  title="Image Title"><img src="~/Images/aaa.jpg" alt="" class="img-responsive">
+								<div class="mask">
+									<h4>BOOK HOTEL</h4>
+									<p>A wonderful serenity has taken possession of my entire soul.</p>
+									<span>More</span>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col-md-4 gal-grid">
+						<div class="view view-fifth">
+						   <a href="~/Images/bbb.jpg" class="b-link-stripe b-animate-go  thickbox"  title="Image Title"><img src="~/Images/bbb.jpg" alt="" class="img-responsive">
+								<div class="mask">
+									<h4>BOOK HOTEL</h4>
+									<p>A wonderful serenity has taken possession of my entire soul.</p>
+									<span>More</span>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col-md-4 gal-grid">
+						<div class="view view-fifth">
+							<a href="~/Images/ccc.jpg" class="b-link-stripe b-animate-go  thickbox"  title="Image Title"><img src="~/Images/ccc.jpg" alt="" class="img-responsive">
+								<div class="mask">
+									<h4>BOOK HOTEL</h4>
+									<p>A wonderful serenity has taken possession of my entire soul.</p>
+									<span>More</span>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col-md-4 gal-grid">
+						<div class="view view-fifth">
+						   <a href="~/Images/ddd.jpg" class="b-link-stripe b-animate-go  thickbox"  title="Image Title"><img src="~/Images/ddd.jpg" alt="" class="img-responsive">
+								<div class="mask">
+									<h4>BOOK HOTEL</h4>
+									<p>A wonderful serenity has taken possession of my entire soul.</p>
+									<span>More</span>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col-md-4 gal-grid">
+						 <div class="view view-fifth">
+							<a href="~/Images/eee.jpg" class="b-link-stripe b-animate-go  thickbox"  title="Image Title"><img src="~/Images/eee.jpg" alt="" class="img-responsive">
+								<div class="mask">
+									<h4>BOOK HOTEL</h4>
+									<p>A wonderful serenity has taken possession of my entire soul.</p>
+									<span>More</span>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col-md-4 gal-grid">
+						<div class="view view-fifth">
+							<a href="~/Images/bbb.jpg" class="b-link-stripe b-animate-go  thickbox"  title="Image Title"><img src="~/Images/bbb.jpg" alt="" class="img-responsive">
+								<div class="mask">
+									<h4>BOOK HOTEL</h4>
+									<p>A wonderful serenity has taken possession of my entire soul.</p>
+									<span>More</span>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col-md-4 gal-grid">
+						<div class="view view-fifth">
+							<a href="~/Images/ggg.jpg" class="b-link-stripe b-animate-go  thickbox"  title="Image Title"><img src="~/Images/ggg.jpg" alt="" class="img-responsive">
+								<div class="mask">
+									<h4>BOOK HOTEL</h4>
+									<p>A wonderful serenity has taken possession of my entire soul.</p>
+									<span>More</span>
+								</div>
+							</a>
+						</div>
+					</div>
+					
+					<div class="col-md-4 gal-grid">
+						<div class="view view-fifth">
+							<a href="~/Images/bbb.jpg" class="b-link-stripe b-animate-go  thickbox"  title="Image Title"><img src="~/Images/bbb.jpg" alt="" class="img-responsive">
+								<div class="mask">
+									<h4>BOOK HOTEL</h4>
+									<p>A wonderful serenity has taken possession of my entire soul.</p>
+									<span>More</span>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col-md-4 gal-grid">
+						<div class="view view-fifth">
+						   <a href="~/Images/aaa.jpg" class="b-link-stripe b-animate-go  thickbox"  title="Image Title"><img src="~/Images/aaa.jpg" alt="" class="img-responsive">
+								<div class="mask">
+									<h4>BOOK HOTEL</h4>
+									<p>A wonderful serenity has taken possession of my entire soul.</p>
+									<span>More</span>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+			</div>
+				<script src="~/Scripts/jquery.chocolat.js"></script>
+			
+			<!--light-box-files -->
+			<script type="text/javascript">
+			$(function() {
+				$('.gallery a').Chocolat();
+			});
+			</script>
+
+	</div>
+</div>
+<!-- //gallery -->
+<!--footer-->
+	<div class="footer">
+		<div class="container">				 	
+			<div class="col-md-3 ftr_navi ftr">
+				<h3>NAVIGATION</h3>
+				<ul>
+					<li><a href="/Home/index">Home</a></li>
+					<li><a href="/Home/about">About</a></li>
+					<li><a href="/Home/typography">Services</a></li>						
+					<li><a href="/Home/booking">Booking</a></li>
+					<li><a href="/Home/contact">Contact</a></li>
+					<li><a href="/Home/login">Login</a></li>
+				</ul>
+			</div>
+			<div class="col-md-3 ftr_navi ftr">
+					 <h3>FACILITIES</h3>
+					 <ul>
+						 <li><a href="#">Double bedrooms</a></li>
+						 <li><a href="#">Single bedrooms</a></li>
+						 <li><a href="#">Royal facilities</a></li>						
+						 <li><a href="#">Halls</a></li>
+					 </ul>
+			</div>
+			<div class="col-md-3 ftr_navi ftr">
+				<h3>GET IN TOUCH</h3>
+				<ul>
+					<li>hotelbook7@gmail.com</li>
+					<li>+92 324-6482400</li>
+                    <li>+92 324-4804924</li>
+				</ul>
+			</div>
+			<div class="col-md-3 ftr-logo">
+				<a href="/Home/index"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Book Hotel</a>
+                <ul>
+                    <li><a href="http://www.facebook.com/Book-Hotel-135505630191648/?skip_nax_wizard=true" class="f1"></a></li>
+                    <li><a href="http://twitter.com/book_hotel7" class="f2"></a></li>
+                    <li><a href="http://gmail.com" class="f3"></a></li>
+                </ul>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+<!--footer-->
+<!-- copy -->
+<div class="copy-right">
+	<div class="container">
+			<p> &copy; 2016 Book Hotel. All Rights Reserved </p>
+	</div>
+</div>
+<!-- //copy -->
+<!-- for bootstrap working -->
+	<script src="~/Scripts/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+<!-- smooth scrolling -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+		/*
+			var defaults = {
+			containerID: 'toTop', // fading element id
+			containerHoverID: 'toTopHover', // fading element hover id
+			scrollSpeed: 1200,
+			easingType: 'linear' 
+			};
+		*/								
+		$().UItoTop({ easingType: 'easeOutQuart' });
+		});
+	</script>
+	<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+<!-- //smooth scrolling -->
+</body>
+</html>

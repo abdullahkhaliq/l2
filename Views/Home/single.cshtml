@@ -1,0 +1,296 @@
+﻿@model MvcApplication1.Models.Hotel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Hotel</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Book Hotel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+               function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //for-mobile-apps -->
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/Content/flexslider.css" media="screen" />
+    <!-- js -->
+    <script src="~/Scripts/jquery-1.11.1.min.js"></script>
+    <!-- //js -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="~/Scripts/move-top.js"></script>
+    <script type="text/javascript" src="~/Scripts/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+    </script>
+    <!-- start-smoth-scrolling -->
+</head>
+<body>
+    <!-- banner -->
+    <div class="banner page-head">
+        <div class="container">
+            <div class="header-nav">
+                <div class="logo">
+                    <h1><a href="/Home/index"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Book Hotel</a></h1>
+                </div>
+                <div class="navigation">
+                    <span class="menu"><img src="~/Images/menu.png" alt="" /></span>
+                    <nav class="cl-effect-11" id="cl-effect-11">
+                        <ul class="nav1">
+                            <li><a href="/Home/index" data-hover="HOME">HOME</a></li>
+                            <li><a href="/Home/about" data-hover="ABOUT">ABOUT</a></li>
+                            <li><a href="/Home/typofraphy" data-hover="SERVICES">SERVICES</a></li>
+                            <li><a href="/Home/contact" data-hover="CONTACT">CONTACT</a></li>
+                            @if (Session["User"] == null)
+{
+    <li><a href="/Home/login" data-hover="LOGIN">LOGIN</a></li>
+}
+else
+{
+    <li><a href="/Home/Details" data-hover="BOOKINGS">BOOKINGS</a></li>
+    <li><a href="/Home/login2" data-hover="LOUT">LOUT</a></li>
+                               <li class="nav navbar-nav navbar-right" style="color:yellow;">@Session["User"]</li>
+
+}
+                        </ul>
+                    </nav>
+                    <!-- script for menu -->
+                    <script>
+                        $("span.menu").click(function () {
+                            $("ul.nav1").slideToggle(300, function () {
+                                // Animation complete.
+                            });
+                        });
+                    </script>
+                    <!-- //script for menu -->
+
+                </div>
+                <div class="social-icons">
+                    <ul>
+                        <li><a href="http://www.facebook.com/Book-Hotel-135505630191648/?skip_nax_wizard=true" class="f1"></a></li>
+                        <li><a href="http://twitter.com/book_hotel7" class="f2"></a></li>
+                        <li><a href="http://gmail.com" class="f3"></a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <!-- //banner -->
+    <!--single-page-->
+    <div class="single-page">
+        <div class="container">
+            <div class="col-md-8 single-gd-lt">
+                <div class="single-pg-hdr">
+                    <h2><span class="glyphicon glyphicon-bed" aria-hidden="true"></span>@Model.Name</h2>
+                    <p>@Model.Address</p>
+                    <p>@Model.Distance</p>
+                </div>
+
+
+
+
+
+                <div class="slider">
+                    <ul class="slides">
+                        <li data-thumb="~/images/bbb.jpg">
+                            <img src="~/images/bbb.jpg" alt="" />
+                        </li>
+                        <li data-thumb="~/images/ccc.jpg">
+                            <img src="~/images/ccc.jpg" alt="" />
+                        </li>
+                        <li data-thumb="~/images/ddd.jpg">
+                            <img src="~/images/ddd.jpg" alt="" />
+                        </li>
+                        <li data-thumb="~/images/eee.jpg">
+                            <img src="~/images/eee.jpg" alt="" />
+                        </li>
+                        @*<li data-thumb="~/images/ggg.jpg">
+                            <img src="~/images/ggg.jpg" alt="" />
+                        </li>
+                        <li data-thumb="~/images/bbb.jpg">
+                            <img src="~/images/bbb.jpg" alt="" />
+                        </li>
+                        <li data-thumb="~/images/ccc.jpg">
+                            <img src="~/images/ccc.jpg" alt="" />
+                        </li>
+                        <li data-thumb="~/images/ddd.jpg">
+                            <img src="~/images/ddd.jpg" alt="" />
+                        </li>
+                        <li data-thumb="~/images/eee.jpg">
+                            <img src="~/images/eee.jpg" alt="" />
+                        </li>
+                        <li data-thumb="~/images/ggg.jpg">
+                            <img src="~/images/ggg.jpg" alt="" />
+                        </li>
+                        <li data-thumb="~/images/bbb.jpg">
+                            <img src="~/images/bbb.jpg" alt="" />
+                        </li>
+                        <li data-thumb="~/images/ccc.jpg">
+                            <img src="~/images/ccc.jpg" alt="" />
+                        </li>
+                        <li data-thumb="~/images/ddd.jpg">
+                            <img src="~/images/ddd.jpg" alt="" />
+                        </li>
+                        <li data-thumb="~/images/eee.jpg">
+                            <img src="~/images/eee.jpg" alt="" />
+                        </li>
+                        <li data-thumb="~/images/ggg.jpg">
+                            <img src="~/images/ggg.jpg" alt="" />
+                        </li>
+                        <li data-thumb="~/images/ccc.jpg">
+                            <img src="~/images/ccc.jpg" alt="" />
+                        </li>
+                        <li data-thumb="~/images/ddd.jpg">
+                            <img src="~/images/ddd.jpg" alt="" />
+                        </li>
+                        <li data-thumb="~/images/bbb.jpg">
+                            <img src="~/images/bbb.jpg" alt="" />
+                        </li>
+                        <li data-thumb="~/images/ccc.jpg">
+                            <img src="~/images/ccc.jpg" alt="" />
+                        </li>*@
+                    </ul>
+                  </div>
+                <!-- FlexSlider -->
+       
+
+                    <script defer src="~/Scripts/jquery.flexslider.js"></script>
+                <script>
+                    // Can also be used with $(document).ready()
+                    $(window).load(function () {
+                        $('.flexslider').flexslider({
+                            animation: "slide",
+                            controlNav: "thumbnails"
+                        });
+                    });
+                </script>
+
+            </div>
+            <div class="col-md-4 single-gd-rt">
+                <div class="spl-btn">
+                    <div class="spl-btn-bor">
+                        <a href="#" data-toggle="tooltip" title="Save up to 50% on this stay">
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
+
+                        </a>
+                        <p>Special Offer</p>
+                        <script>
+                            $(document).ready(function () {
+                                $('[data-toggle="tooltip"]').tooltip();
+                            });
+                        </script>
+                    </div>
+                    <div class="sp-bor-btn text-right">
+                        <h4 style="text-align:center">Rs @Model.Price</h4>
+                        <p class="best-pri" style="text-align:center">Best price</p>
+                        <p style="text-align:center"><a class="best-btn" href="/Home/booking/@Model.Id">Book Now</a></p>
+                    </div>
+                </div>
+                <div class="map-gd">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d108878.06351038905!2d74.21730655916075!3d31.484601678729312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1spearl+continental+lahore!5e0!3m2!1sen!2s!4v1452750215985"></iframe>
+
+                </div>
+                <div class="other-comments">
+                    <div class="comments-head">
+                        <h3>Excellent</h3>
+                        <p>4.5/5</p>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="comments-bot">
+                        <p>"Food and rooms are very good to stay. Iam very happy to stay in such a nice hotel".</p>
+                        <h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Maria</h4>
+                    </div>
+                    <div class="comments-bot">
+                        <p>"This is the 19th visit for me. Overall very happy with the service, the breakfast spread & the efficiency of the staff. ".</p>
+                        <h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Haziq</h4>
+                    </div>
+                    <div class="comments-bot">
+                        <p>"A very pleasant hotel with good staff and a great attitude.".</p>
+                        <h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Faqir</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <!--//single-page-->
+    <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <div class="col-md-3 ftr_navi ftr">
+                <h3>NAVIGATION</h3>
+                <ul>
+                    <li><a href="/Home/index">Home</a></li>
+                    <li><a href="/Home/about">About</a></li>
+                    <li><a href="/Home/typofraphy">Services</a></li>
+                    <li><a href="/Home/booking">Booking</a></li>
+                    <li><a href="/Home/contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 ftr_navi ftr">
+                <h3>FACILITIES</h3>
+                <ul>
+                    <li><a href="#">Double bedrooms</a></li>
+                    <li><a href="#">Single bedrooms</a></li>
+                    <li><a href="#">Royal facilities</a></li>
+                    <li><a href="#">Halls</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 ftr_navi ftr">
+                <h3>GET IN TOUCH</h3>
+                <ul>
+                    <li>hotelbook7@gmail.com</li>
+                    <li>+92 324-6482400</li>
+                    <li>+92 324-4804924</li>
+
+                </ul>
+            </div>
+            <div class="col-md-3 ftr-logo">
+                <a href="/Home/index"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Book Hotel</a>
+                <ul>
+                    <li><a href="http://www.facebook.com/Book-Hotel-135505630191648/?skip_nax_wizard=true" class="f1"></a></li>
+                    <li><a href="http://twitter.com/book_hotel7" class="f2"></a></li>
+                    <li><a href="http://gmail.com" class="f3"></a></li>
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!--footer-->
+    <!-- copy -->
+    <div class="copy-right">
+        <div class="container">
+            <p> &copy; 2016 Book Hotel. All Rights Reserved</p>
+        </div>
+    </div>
+    <!-- //copy -->
+    <!-- for bootstrap working -->
+    <script src="~/Scripts/bootstrap.js"></script>
+    <!-- //for bootstrap working -->
+    <!-- smooth scrolling -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /*
+                var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+                };
+            */
+            $().UItoTop({ easingType: 'easeOutQuart' });
+        });
+    </script>
+    <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+    <!-- //smooth scrolling -->
+</body>
+</html>

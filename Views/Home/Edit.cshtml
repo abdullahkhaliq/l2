@@ -1,0 +1,200 @@
+﻿@model MvcApplication1.Models.Hotel
+@{
+    ViewBag.Title = "Edit";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>    Book Hotel  </title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Classic Hotel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+               function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //for-mobile-apps -->
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- js -->
+    <script src="~/Scripts/jquery-1.11.1.min.js"></script>
+    <!-- //js -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="~/Scripts/move-top.js"></script>
+    <script type="text/javascript" src="~/Scripts/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+    </script>
+    <!-- start-smoth-scrolling -->
+</head>
+<body>
+    <!-- banner -->
+    <div class="banner page-head">
+        <div class="container">
+            <div class="header-nav">
+                <div class="logo">
+                    <h1><a href="/Home/index"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Book Hotel</a></h1>
+                </div>
+                <div class="navigation">
+                    <span class="menu"><img src="~/Images/menu.png" alt="" /></span>
+                    <nav class="cl-effect-11" id="cl-effect-11">
+                        <ul class="nav1">
+                            <li><a class="active" href="/Home/index" data-hover="HOME">HOME</a></li>
+                            <li><a href="/Home/about" data-hover="ABOUT">ABOUT</a></li>
+                            <li><a href="/Home/typography" data-hover="SERVICES">SERVICES</a></li>
+                            <li><a href="/Home/contact" data-hover="CONTACT">CONTACT</a></li>
+                            @if (Session["User"] == null)
+                            {
+                                <li><a href="/Home/login" data-hover="LOGIN">LOGIN</a></li>
+                            }
+                            else
+                            {
+
+                                <li><a href="/Home/Details" data-hover="BOOKINGS">BOOKINGS</a></li>
+                                <li><a href="/Home/login2" data-hover="LOUT">LOUT</a></li>
+                                <li class="nav navbar-nav navbar-right" style="color:yellow;">@Session["User"]</li>
+                            }
+                        </ul>
+                    </nav>
+                    <!-- script for menu -->
+                    <script>
+                        $("span.menu").click(function () {
+                            $("ul.nav1").slideToggle(300, function () {
+                                // Animation complete.
+                            });
+                        });
+                    </script>
+                    <!-- //script for menu -->
+
+                </div>
+                <div class="social-icons">
+                    <ul>
+                        <li><a href="http://www.facebook.com/Book-Hotel-135505630191648/?skip_nax_wizard=true" class="f1"></a></li>
+                        <li><a href="http://twitter.com/book_hotel7" class="f2"></a></li>
+                        <li><a href="http://gmail.com" class="f3"></a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <!-- start-header section-->
+    <!-- end-header section-->
+    <!--start-banner-->
+    <!-- registration -->
+    <br /><br />
+
+    <h3 style="text-align:center"><b>HOTEL INFORMATION</b></h3>
+
+    <br /><br />
+
+    <form action="/Home/Update/@Model.Id" method="post">
+
+
+        <table style="text-align:center">
+            <tr>
+                <td><label>Hotel Name*</label><br /><br /></td>
+                <td><input type="text" name="hname" id="hname" value="@Model.Name"><br /><br /></td>
+            </tr>
+            <tr>
+                <td><label>Hotel View*</label><br /><br /></td>
+                <td><input type="text" name="view" id="view" value="@Model.View" /><br /><br /></td>
+            </tr>
+            <tr>
+                <td><label>Hotel Address*</label><br /><br /></td>
+                <td><input type="text" name="address" id="address" value="@Model.Address"><br /><br /></td>
+            </tr>
+            <tr>
+                <td><label>Hotel Distance*</label><br /><br /></td>
+                <td><input type="text" name="distance" id="distance" value="@Model.Distance"><br /><br /></td>
+            </tr>
+            <tr>
+                <td><label>Hotel Booking Price*</label><br /><br /></td>
+                <td> <input type="text" name="price" id="price" value="@Model.Price"><br /><br /></td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Submit">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <br /><br />
+    <!-- registration -->
+
+    <div class="footer">
+        <div class="container">
+            <div class="col-md-3 ftr_navi ftr">
+                <h3>NAVIGATION</h3>
+                <ul>
+                    <li><a href="/Home/index">Home</a></li>
+                    <li><a href="/Home/about">About</a></li>
+                    <li><a href="/Home/typography">Services</a></li>
+                    <li><a href="/Home/contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 ftr_navi ftr">
+                <h3>FACILITIES</h3>
+                <ul>
+                    <li><a href="#">Double bedrooms</a></li>
+                    <li><a href="#">Single bedrooms</a></li>
+                    <li><a href="#">Royal facilities</a></li>
+                    <li><a href="#">Halls</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 ftr_navi ftr">
+                <h3>GET IN TOUCH</h3>
+                <ul>
+
+                    <li>hotelbook7@gmail.com</li>
+                    <li>+92-324-6482400</li>
+                </ul>
+            </div>
+            <div class="col-md-3 ftr-logo">
+                <a href="/Home/index"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Book Hotel</a>
+                <ul>
+                    <li><a href="http://www.facebook.com/Book-Hotel-135505630191648/?skip_nax_wizard=true" class="f1"></a></li>
+                    <li><a href="http://twitter.com/book_hotel7" class="f2"></a></li>
+                    <li><a href="http://gmail.com" class="f3"></a></li>
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!--footer-->
+    <!-- copy -->
+    <div class="copy-right">
+        <div class="container">
+            <p> &copy; 2016 Book Hotel. All Rights Reserved.</p>
+        </div>
+    </div>
+    <!-- //copy -->
+    <!-- for bootstrap working -->
+    <script src="~/Scripts/bootstrap.js"></script>
+    <!-- //for bootstrap working -->
+    <!-- smooth scrolling -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /*
+                var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+                };
+            */
+            $().UItoTop({ easingType: 'easeOutQuart' });
+        });
+    </script>
+    <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+    <!-- //smooth scrolling -->
+</body>
+</html>

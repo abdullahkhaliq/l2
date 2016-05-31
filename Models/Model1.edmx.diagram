@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9c735805c1974fd0a375a2d20fa80795" Name="Diagram1">
+        <EntityTypeShape EntityType="Database1Model.Booking" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.City" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Contact" Width="1.5" PointX="7.5" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Hotel" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Login" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <AssociationConnector Association="Database1Model.FK_Booking_City" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_Booking_Hotel" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_Contact_Booking" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_Hotel_City" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_Contact_Login" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
